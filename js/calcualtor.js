@@ -133,7 +133,6 @@ function getValue() {
         document.getElementById('valX').innerHTML = r.toNumber();
 
     });
-
     calculator.getY(function (e, r) {
         document.getElementById('valY').innerHTML = r.toNumber();
     });
@@ -145,19 +144,14 @@ function setValue(isX) {
 
     if (isX) {
         calculator.setX(newValue, function (e, r) {
-            document.getElementById('valX').innerHTML = r + ' <span id = "pendingX" style="color:red;">(Pending)</span>';
+            alert('Transaction 요청 완료 : ' + r);
         });
     }
     else {
         calculator.setY(newValue, function (e, r) {
-            document.getElementById('valY').innerHTML = r + ' <span id = "pendingY" style="color:red;">(Pending)</span>';
+            alert('Transaction 요청 완료 : ' + r);
         });
     }
-
-    var filter = web3.eth.filter('latest');
-    filter.watch(function (e, r) {
-        getValue();
-    });
 }
 
 function add() {
