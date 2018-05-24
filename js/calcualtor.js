@@ -136,23 +136,28 @@ function getValue() {
 
     calculator.getY(function (e, r) {
         document.getElementById('valY').innerHTML = r.toNumber();
-
     });
 }
 
-function setX(isX) {
-    var from = isX ? 'contractX' : 'contractY';
+function setValue(isX) {
+    var from = isX ? 'inputX' : 'inputY';
     var newValue = document.getElementById(from).value;
+
     if (isX) {
         calculator.setX(newValue, function (e, r) {
-            getValue();
+            document.getElementById('valX').innerHTML = r + ' <span id = "pendingX" style="color:red;">(Pending)</span>';
         });
     }
     else {
         calculator.setY(newValue, function (e, r) {
-            getValue();
+            document.getElementById('valY').innerHTML = r + ' <span id = "pendingY" style="color:red;">(Pending)</span>';
         });
     }
+
+    var filter = web3.eth.filter('latest');
+    filter.watch(function (e, r) {
+        getValue();
+    });
 }
 
 function add() {

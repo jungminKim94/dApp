@@ -11,15 +11,15 @@
     <li>내 어카운트 주소: <span id="accountAddr"></span></li>
     <li>첫번째 값 :
         <div id="valX"></div>
-        <input id="contractX" type="number">
-        <button onclick="setX()">새로운 x값 저장</button>
+        <input id="inputX" type="number">
+        <button onclick="setValue(true)">저장</button>
     </li>
     <li>두번째 값 :
         <div id="valY"></div>
-        <input id="contractY" type="number">
-        <button onclick="setY()">새로운 y값 저장</button>
+        <input id="inputY" type="number">
+        <button onclick="setValue(false)">저장</button>
     </li>
-    <li>결과 :
+    <li>계산 :
         <div id="result"></div>
         <button onclick="add()">더하기</button>
         <button onclick="subtract()">빼기</button>
