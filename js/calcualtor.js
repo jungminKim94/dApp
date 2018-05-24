@@ -152,6 +152,11 @@ function setValue(isX) {
             alert('Transaction 요청 완료 : ' + r);
         });
     }
+
+    var filter = web3.eth.filter('latest');
+    filter.watch(function (e, r) {
+        getValue();
+    });
 }
 
 function add() {
