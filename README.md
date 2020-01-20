@@ -1,3 +1,2 @@
 # dApp_calculator
-Ethereum-based simple dApp for exercise(calculator)
-- http://jungminkim.me/dApp
+Ethereum-based simple dApp
